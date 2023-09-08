@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">iNotes</string>
+    <string name="text_view_title_sign_up">Hello!\nLet\'s get started.</string>
+    <string name="text_view_title_login">Hello!\nWelcome Back.</string>
+</resources>

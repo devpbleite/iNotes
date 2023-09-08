@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "33192529447",
+    "project_id": "inotes-b4173",
+    "storage_bucket": "inotes-b4173.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33192529447:android:18dca10a2f109dd8b78802",
+        "android_client_info": {
+          "package_name": "app.kotlin.devpbleite.inotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33192529447-ddt8a1oglosa3rsc23gkk3ids112sb6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtR2CjUmVrMAghjA5qAL3VYd7ACxOfSEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33192529447-ddt8a1oglosa3rsc23gkk3ids112sb6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
