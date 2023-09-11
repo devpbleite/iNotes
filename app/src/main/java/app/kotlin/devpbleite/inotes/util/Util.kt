@@ -1,4 +1,4 @@
-package app.kotlin.devpbleite.inotes
+package app.kotlin.devpbleite.inotes.util
 
 import android.content.Context
 import android.widget.Toast

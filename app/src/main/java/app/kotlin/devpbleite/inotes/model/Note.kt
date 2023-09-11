@@ -1,4 +1,4 @@
-package app.kotlin.devpbleite.inotes
+package app.kotlin.devpbleite.inotes.model
 
 import com.google.firebase.Timestamp
 

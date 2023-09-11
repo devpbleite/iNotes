@@ -1,31 +1,39 @@
-package app.kotlin.devpbleite.inotes
+package app.kotlin.devpbleite.inotes.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.PopupMenu
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import app.kotlin.devpbleite.inotes.adapter.NoteAdapter
+import app.kotlin.devpbleite.inotes.databinding.ActivityMainBinding
+import app.kotlin.devpbleite.inotes.viewmodel.MainActivityViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.Query
 
 class MainActivity : AppCompatActivity() {
     
-    private var addNoteBtn: FloatingActionButton? = null
-    private var recyclerView: RecyclerView? = null
-    private var menuBtn: ImageButton? = null
-    private var noteAdapter: NoteAdapter? = null
+    private lateinit var addNoteBtn: FloatingActionButton
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var menuBtn: ImageButton
+    private lateinit var noteAdapter: NoteAdapter
+    private lateinit var viewModel: MainActivityViewModel
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        addNoteBtn = findViewById(R.id.btn_add)
-        recyclerView = findViewById(R.id.recycler_view)
-        menuBtn = findViewById(R.id.btn_menu_note)
-        addNoteBtn!!.setOnClickListener{
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        
+        addNoteBtn = binding.btnAdd
+        recyclerView = binding.recyclerView
+        menuBtn = binding.btnMenuNote
+        
+        viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        
+        addNoteBtn.setOnClickListener{
             startActivity(
                 Intent(
                     this@MainActivity,
@@ -33,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         }
-        menuBtn!!.setOnClickListener { showMenu() }
+        menuBtn.setOnClickListener { showMenu() }
         setupRecyclerView()
     }
     
@@ -57,28 +65,25 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun setupRecyclerView() {
-        val query: Query = Util.notesCollectionReference
-            .orderBy("timestamp", Query.Direction.DESCENDING)
-        val options: FirestoreRecyclerOptions<Note> =
-            FirestoreRecyclerOptions.Builder<Note>()
-                .setQuery(query, Note::class.java).build()
-        recyclerView!!.layoutManager = LinearLayoutManager(this)
+        val options = viewModel.getNoteListOptions()
+        
+        recyclerView.layoutManager = LinearLayoutManager(this)
         noteAdapter = NoteAdapter(options, this)
-        recyclerView!!.adapter = noteAdapter
+        recyclerView.adapter = noteAdapter
     }
     
     override fun onStart() {
         super.onStart()
-        noteAdapter!!.startListening()
+        noteAdapter.startListening()
     }
     
     override fun onStop() {
         super.onStop()
-        noteAdapter!!.stopListening()
+        noteAdapter.stopListening()
     }
     
     override fun onResume() {
         super.onResume()
-        noteAdapter!!.notifyDataSetChanged()
+        noteAdapter.notifyDataSetChanged()
     }
 }

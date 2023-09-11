@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/my_bg"
     android:padding="16dp"
-    tools:context=".NoteDetailsActivity">
+    tools:context=".view.NoteDetailsActivity">
     
     <RelativeLayout
         android:id="@+id/title_bar_layout"
