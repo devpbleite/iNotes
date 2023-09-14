@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView = binding.recyclerView
         menuBtn = binding.btnMenuNote
         
-        viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
         
         addNoteBtn.setOnClickListener{
             startActivity(

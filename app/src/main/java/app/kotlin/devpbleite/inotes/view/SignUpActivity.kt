@@ -32,7 +32,7 @@ class SignUpActivity : AppCompatActivity() {
             return
         }
         
-        viewModel.createAccount(email, password).observe(this, Observer { result ->
+        viewModel.createAccount(email, password).observe(this) { result ->
             when (result) {
                 is SignUpViewModel.SignUpResult.Success -> {
                     Util.showToast(
@@ -41,11 +41,15 @@ class SignUpActivity : AppCompatActivity() {
                     )
                     finish()
                 }
+        
                 is SignUpViewModel.SignUpResult.Error -> {
-                    Util.showToast(this@SignUpActivity, "Error: ${result.message}")
+                    Util.showToast(
+                        this@SignUpActivity,
+                        "Error: ${result.message}"
+                    )
                 }
             }
-        })
+        }
     }
     
     private fun validateData(

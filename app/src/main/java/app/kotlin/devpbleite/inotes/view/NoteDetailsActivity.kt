@@ -22,7 +22,7 @@ class NoteDetailsActivity : AppCompatActivity() {
         binding = ActivityNoteDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
     
-        viewModel = ViewModelProvider(this).get(NoteDetailsViewModel::class.java)
+        viewModel = ViewModelProvider(this)[NoteDetailsViewModel::class.java]
         
         val titleEditText = binding.noteTitleText
         val contentEditText = binding.noteContentText
