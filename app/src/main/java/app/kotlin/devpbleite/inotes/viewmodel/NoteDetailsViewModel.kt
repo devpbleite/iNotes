@@ -1,3 +1,5 @@
+package app.kotlin.devpbleite.inotes.viewmodel
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,7 +24,8 @@ class NoteDetailsViewModel : ViewModel() {
                 if (task.isSuccessful) {
                     _resultMessage.value = NoteOperationResult.Success
                 } else {
-                    _resultMessage.value = NoteOperationResult.Error("Failed to update note")
+                    _resultMessage.value =
+                        NoteOperationResult.Error("Failed to update note")
                 }
             }
     }
@@ -34,7 +37,8 @@ class NoteDetailsViewModel : ViewModel() {
                 if (task.isSuccessful) {
                     _resultMessage.value = NoteOperationResult.Success
                 } else {
-                    _resultMessage.value = NoteOperationResult.Error("Failed to add note")
+                    _resultMessage.value =
+                        NoteOperationResult.Error("Failed to add note")
                 }
             }
     }
@@ -45,7 +49,8 @@ class NoteDetailsViewModel : ViewModel() {
                 if (task.isSuccessful) {
                     _resultMessage.value = NoteOperationResult.Success
                 } else {
-                    _resultMessage.value = NoteOperationResult.Error("Failed to delete note")
+                    _resultMessage.value =
+                        NoteOperationResult.Error("Failed to delete note")
                 }
             }
     }

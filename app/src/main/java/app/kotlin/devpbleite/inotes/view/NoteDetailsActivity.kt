@@ -1,9 +1,8 @@
 package app.kotlin.devpbleite.inotes.view
 
-import NoteDetailsViewModel
+import app.kotlin.devpbleite.inotes.viewmodel.NoteDetailsViewModel
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import app.kotlin.devpbleite.inotes.databinding.ActivityNoteDetailBinding
 import app.kotlin.devpbleite.inotes.model.Note
