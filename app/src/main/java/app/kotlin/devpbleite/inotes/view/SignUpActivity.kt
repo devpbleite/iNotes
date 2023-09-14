@@ -49,7 +49,7 @@ class SignUpActivity : AppCompatActivity() {
     }
     
     private fun validateData(
-        email: String?,
+        email: String,
         password: String,
         confirmPassword: String
     ): Boolean {
