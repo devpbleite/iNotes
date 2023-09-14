@@ -30,8 +30,7 @@ class LoginActivity : AppCompatActivity() {
                 )
             )
         }
-        
-        
+                
         viewModel.loggedIn.observe(this) { loggedIn ->
             if (loggedIn) {
                 startActivity(
@@ -60,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
         viewModel.login(email, password)
     }
     
-    private fun validateData(email: String?, password: String): Boolean {
+    private fun validateData(email: String, password: String): Boolean {
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.edtEmail.error = "Invalid email."
             binding.edtEmail.requestFocus()
