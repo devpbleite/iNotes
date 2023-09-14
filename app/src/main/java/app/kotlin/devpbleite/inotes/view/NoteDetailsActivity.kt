@@ -67,8 +67,8 @@ class NoteDetailsActivity : AppCompatActivity() {
             }
         }
         
-        viewModel.resultMessage.observe(this, Observer { message ->
+        viewModel.resultMessage.observe(this) { message ->
             Util.showToast(this@NoteDetailsActivity, message.toString())
-        })
+        }
     }
 }
